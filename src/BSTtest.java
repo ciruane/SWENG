@@ -77,10 +77,10 @@ import org.junit.runners.JUnit4;
          assertEquals("Checking pretty printing of empty tree",
                  "-null\n", bst.prettyPrintKeys());
  
-         //  -7
-         //   |-3
-         //   | |-1
-         //   | | |-null
+	 				          //  -7
+					          //   |-3
+	 				          //   | |-1
+					          //   | | |-null
          bst.put(7, 7);       //   | |  -2
          bst.put(8, 8);       //   | |   |-null
          bst.put(3, 3);       //   | |    -null
@@ -89,14 +89,14 @@ import org.junit.runners.JUnit4;
          bst.put(6, 6);       //   |   | |-null
          bst.put(4, 4);       //   |   |  -5
          bst.put(5, 5);       //   |   |   |-null
-         //   |   |    -null
-         //   |    -null
-         //    -8
-         //     |-null	
-         //      -null
+					          //   |   |    -null
+					          //   |    -null
+					          //    -8
+					          //     |-null	
+					          //      -null
  
          String result = 
-                 "-7\n" +
+                 		 "-7\n" +
                          " |-3\n" + 
                          " | |-1\n" +
                          " | | |-null\n" + 
@@ -152,4 +152,24 @@ import org.junit.runners.JUnit4;
          assertEquals("Deleting node with two children",
                  "(((()1())2(()4(()5())))7())", bst.printKeysInOrder());	  	
      }	  	
+     
+     //test lowest common ancestor function
+     @Test
+     public void testLCA()
+     {
+    	 //build tree to test on
+    	 BST<Integer, Integer> bst = new BST<Integer, Integer>();
+    	 bst.put(7, 7);   //        _7_
+         bst.put(8, 8);   //      /     \
+         bst.put(3, 3);   //    _3_      8
+         bst.put(1, 1);   //  /     \
+         bst.put(2, 2);   // 1       6
+         bst.put(6, 6);   //  \     /
+         bst.put(4, 4);   //   2   4
+         bst.put(5, 5);   //        \
+                          //         5
+         assertEquals("testing two keys at same depth", 3, bst.lowestCommonAncestor(1, 6));
+         assertEquals("testing root as answer", 7, bst.lowestCommonAncestor(8, 3));
+         assertEquals("testing keys at different depths", 3, bst.lowestCommonAncestor(2, 5));
+     }
  }
