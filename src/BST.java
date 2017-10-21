@@ -253,6 +253,22 @@ public class BST<Key extends Comparable<Key>, Value> {
          x.N = 1 + size(x.left) + size(x.right);
          return x;
      } 
+     
+     public Key lowestCommonAncestor(Key a, Key b)
+     {
+    	 return lowestCommonAncestor(root, a, b).key;
+     }
+     private Node lowestCommonAncestor(Node x, Key a, Key b)
+     {
+    	 int cmpA = x.key.compareTo(a);
+    	 int cmpB = x.key.compareTo(b);
+    	 if(cmpA>0 && cmpB>0)
+    		 return lowestCommonAncestor(x.left, a, b);
+    	 else if(cmpA<0 && cmpB<0)
+    		 return lowestCommonAncestor(x.left, a, b);
+    	 else
+    		 return x;
+     }
 
 
 }
