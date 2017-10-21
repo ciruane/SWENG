@@ -168,8 +168,8 @@ import org.junit.runners.JUnit4;
          bst.put(4, 4);   //   2   4
          bst.put(5, 5);   //        \
                           //         5
-         assertEquals("testing two keys at same depth", 3, bst.lowestCommonAncestor(1, 6));
-         assertEquals("testing root as answer", 7, bst.lowestCommonAncestor(8, 3));
-         assertEquals("testing keys at different depths", 3, bst.lowestCommonAncestor(2, 5));
+         assertEquals("testing two keys at same depth", (Integer)3, bst.lowestCommonAncestor((Integer)1, (Integer)6));
+         assertEquals("testing root as answer", (Integer)7, bst.lowestCommonAncestor((Integer)8, (Integer)3));
+         assertEquals("testing keys at different depths", (Integer)3, bst.lowestCommonAncestor((Integer)2, (Integer)5));
      }
  }
